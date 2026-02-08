@@ -33,7 +33,7 @@ University addProfessor(
       required String deptName,
       required String professorName,
     }) {
-  final (:name, :departments) = uni; // ✅ deptName emas, departments
+  final (:name, :departments) = uni;
 
   bool departmentFound = false;
 
@@ -78,7 +78,7 @@ University addCourse(
     departmentFound = true;
 
     final updatedProfs = profs.map((prof) {
-      final (name: pName, courses: courses) = prof; // ✅ courses
+      final (name: pName, courses: courses) = prof;
 
       if (pName != professorName) return prof;
       professorFound = true;
@@ -86,10 +86,10 @@ University addCourse(
       if (courses.contains(course)) return prof;
 
       final updatedCourses = [...courses, course];
-      return (name: pName, courses: updatedCourses); // ✅ professor record qaytadi
+      return (name: pName, courses: updatedCourses);
     }).toList();
 
-    return (name: dName, professors: updatedProfs); // ✅ department qaytadi
+    return (name: dName, professors: updatedProfs);
   }).toList();
 
   if (!departmentFound || !professorFound) return uni;
